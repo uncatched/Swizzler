@@ -2,6 +2,8 @@ import Foundation
 
 public final class Swizzler {
 
+  public init() {}
+
   public func swizzle(original: Swizzler.Method, swizzled: Swizzler.Method) {
     let swizzledClass: AnyClass? = object_getClass(swizzled.methodClass)
     let originalClass: AnyClass? = object_getClass(original.methodClass)
@@ -23,7 +25,7 @@ extension Swizzler {
     let selector: Selector
     let methodClass: Any?
 
-    init(selector: Selector, methodClass: Any?) {
+    public init(selector: Selector, methodClass: Any?) {
       self.selector = selector
       self.methodClass = methodClass
     }
